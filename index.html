@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+  <div id="app">
+    {{ message }}
+  </div>
+  <div id="app-2">
+    <span v-bind:title="message">
+      Hover your mouse over me for a few seconds to see my dynamically bound title!
+    </span>
+  </div>
+  <div id="app-3">
+    <button v-on:click="seen = !seen">
+      Click me
+    </button>
+    <transition name="slide-fade">
+      <p v-if="seen">Now you see me</p>
+    </transition>
+  </div>
+  <div id="app-4">
+    <ol>
+      <li v-for="todo in todos">
+        {{ todo.text }}
+      </li>
+    </ol>
+  </div>
+  <div id="app-5">
+    <p>{{ message }}</p>
+    <button v-on:click="reverseMessage">Reverse Message</button>
+  </div>
+  <div id="app-6">
+    <h3>{{ message.toUpperCase() }}</h3>
+    <input v-model="message">
+  </div>
+  <div id="app-7">
+    <ol>
+      <todo-item
+        v-for="item in groceryList"
+        v-bind:todo="item"
+        v-bind:key="item.id">
+      </todo-item>
+    </ol>
+  </div>
+  <script src="https://unpkg.com/vue"></script>
+  <script type="text/javascript" src="index.js"></script>
+</body>
